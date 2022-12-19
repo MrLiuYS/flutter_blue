@@ -24,6 +24,11 @@ class FlutterBlue {
   static FlutterBlue _instance = new FlutterBlue._();
   static FlutterBlue get instance => _instance;
 
+  /// 断开连接之后.还存在缓存的蓝牙连接数据. 粗暴的处理方法. 直接 重置单例
+  static BlowItUp() {
+    _instance = new FlutterBlue._();
+  }
+
   /// Log level of the instance, default is all messages (debug).
   LogLevel _logLevel = LogLevel.debug;
   LogLevel get logLevel => _logLevel;
